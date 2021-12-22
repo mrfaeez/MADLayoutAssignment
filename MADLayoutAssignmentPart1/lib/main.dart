@@ -19,10 +19,11 @@ class Devices {
 
 class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);
-
   @override
   _MyAppState createState() => _MyAppState();
+}
 
+class _MyAppState extends State<MyApp> {
   final List<Devices> _devices = [
     Devices(id: 0, name: 'Porch Light', icon: 'light-ceiling', state: false),
     Devices(id: 1, name: 'Front Plug', icon: 'plug', state: false),
@@ -35,9 +36,14 @@ class MyApp extends StatefulWidget {
     Devices(id: 4, name: 'Kitchen Light', icon: 'lightbulb', state: false),
     Devices(id: 5, name: 'Kitchen Downlight', icon: 'adjust', state: false),
   ];
-}
 
-class _MyAppState extends State<MyApp> {
+  void deviceState(int id) {
+    int index = _devices.indexWhere((devices) => devices.id == id);
+    setState(() {
+      _devices[index].state = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,7 +55,10 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('My Home'),
         ),
-        body: Center(child: Column(children: <Widget>[Content()])),
+        body: Container(
+            child: Column(children: <Widget>[
+          Content(devices: _devices, deviceState: deviceState)
+        ])),
       ),
     );
   }
