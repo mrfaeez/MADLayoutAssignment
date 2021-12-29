@@ -26,7 +26,11 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final List<Devices> _devices = [
     Devices(id: 0, name: 'Porch Light', icon: Icons.light, state: false),
-    Devices(id: 1, name: 'Front Plug', icon: Icons, state: false),
+    Devices(
+        id: 1,
+        name: 'Front Plug',
+        icon: Icons.account_tree_sharp,
+        state: false),
     Devices(
         id: 2, name: 'Living Room Light', icon: Icons.lightbulb, state: false),
     Devices(id: 3, name: 'Living Room Fan', icon: Icons.ac_unit, state: false),
