@@ -6,7 +6,7 @@ void main() => runApp(MyApp());
 class Devices {
   late int id;
   late String name;
-  late String icon;
+  late dynamic icon;
   bool state = false;
 
   Devices({
@@ -25,22 +25,19 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final List<Devices> _devices = [
-    Devices(id: 0, name: 'Porch Light', icon: 'light-ceiling', state: false),
-    Devices(id: 1, name: 'Front Plug', icon: 'plug', state: false),
+    Devices(id: 0, name: 'Porch Light', icon: Icons.light, state: false),
+    Devices(id: 1, name: 'Front Plug', icon: Icons, state: false),
     Devices(
-        id: 2,
-        name: 'Living Room Light',
-        icon: 'light-switch-on',
-        state: false),
-    Devices(id: 3, name: 'Living Room Fan', icon: 'fan', state: false),
-    Devices(id: 4, name: 'Kitchen Light', icon: 'lightbulb', state: false),
-    Devices(id: 5, name: 'Kitchen Downlight', icon: 'adjust', state: false),
+        id: 2, name: 'Living Room Light', icon: Icons.lightbulb, state: false),
+    Devices(id: 3, name: 'Living Room Fan', icon: Icons.ac_unit, state: false),
+    Devices(id: 4, name: 'Kitchen Light', icon: Icons.light, state: false),
+    Devices(id: 5, name: 'Kitchen Downlight', icon: Icons.light, state: false),
   ];
 
   void deviceState(int id) {
     int index = _devices.indexWhere((devices) => devices.id == id);
     setState(() {
-      _devices[index].state = true;
+      _devices[index].state = !_devices[index].state;
     });
   }
 
@@ -54,11 +51,15 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('My Home'),
+          backgroundColor: Colors.white,
         ),
         body: Container(
-            child: Column(children: <Widget>[
-          Content(devices: _devices, deviceState: deviceState)
-        ])),
+          child: Column(children: <Widget>[
+            Content(devices: _devices, deviceState: deviceState)
+          ]),
+          padding: EdgeInsets.all(20),
+        ),
+        backgroundColor: Colors.grey[300],
       ),
     );
   }
