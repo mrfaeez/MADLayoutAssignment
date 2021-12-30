@@ -1,6 +1,6 @@
 # MADLayoutAssignmentPart1
-MADLayoutAssignmentPart 1
+MADLayoutAssignmentPart 2
 
-Description: Grid layout of devices (4-6 devices) with ON/OFF toggle button.
+Description: Added tab functionality.
 
 ` $ flutter run `

@@ -41,7 +41,8 @@ class Content extends StatelessWidget {
                               width: 20,
                             ),
                             ElevatedButton(
-                              onPressed: () => deviceState(i),
+                              onPressed: () =>
+                                  deviceState(devices.elementAt(i).id),
                               child: const Icon(
                                 Icons.power_settings_new,
                                 color: Colors.grey,
