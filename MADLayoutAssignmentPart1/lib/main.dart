@@ -57,12 +57,7 @@ class _MyAppState extends State<MyApp> {
           title: Text('My Home'),
           backgroundColor: Colors.white,
         ),
-        body: Container(
-          child: Column(children: <Widget>[
-            Content(devices: _devices, deviceState: deviceState)
-          ]),
-          padding: EdgeInsets.all(20),
-        ),
+        body: Content(devices: _devices, deviceState: deviceState),
         backgroundColor: Colors.grey[300],
       ),
     );
